@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>kneeeearwin | Web Developer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f4f4;
+color:#222;
+text-align:center;
+transition:0.3s;
+}
+
+.dark{
+background:#111;
+color:white;
+}
+
+/* HEADER */
+
+header{
+background:#111;
+color:white;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.menu-icon{
+font-size:28px;
+cursor:pointer;
+}
+
+.dark-btn{
+background:#007bff;
+color:white;
+padding:6px 12px;
+border-radius:4px;
+cursor:pointer;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+left:-250px;
+top:0;
+width:250px;
+height:100%;
+background:#222;
+padding-top:60px;
+transition:0.3s;
+z-index:10;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+color:white;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:#444;
+}
+
+/* HERO */
+
+.hero{
+padding:120px 20px;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1498050108023-c5249f4df085");
+background-size:cover;
+color:white;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero button{
+padding:12px 25px;
+margin-top:20px;
+border:none;
+background:#007bff;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* SECTIONS */
+
+.section{
+padding:70px 20px;
+}
+
+/* SKILLS */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.skill-card{
+background:white;
+padding:20px;
+width:140px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* PROJECTS */
+
+.projects{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+}
+
+.project{
+background:white;
+width:300px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.project img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.project a{
+display:inline-block;
+margin:15px;
+background:#007bff;
+color:white;
+padding:8px 18px;
+border-radius:5px;
+text-decoration:none;
+}
+
+/* REVIEWS */
+
+.review{
+background:white;
+max-width:600px;
+margin:15px auto;
+padding:20px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* TELEGRAM */
+
+.telegram{
+display:inline-block;
+background:#229ED9;
+color:white;
+padding:12px 25px;
+border-radius:6px;
+text-decoration:none;
+margin-top:15px;
+}
+
+/* CHAT */
+
+.chat-button{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#007bff;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+cursor:pointer;
+}
+
+.chat-box{
+display:none;
+position:fixed;
+bottom:100px;
+right:20px;
+background:white;
+width:300px;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+.chat-box input{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+/* DARK MODE FIX */
+
+.dark header{
+background:#000;
+}
+
+.dark .skill-card,
+.dark .project,
+.dark .review,
+.dark .chat-box{
+background:#1e1e1e;
+color:white;
+}
+
+.dark .sidebar{
+background:#111;
+}
+
+</style>
+
+</head>
+
+<body onclick="closeMenu(event)">
+
+<header>
+
+<span class="menu-icon" onclick="openMenu()">☰</span>
+
+<b>kneeeearwin Portfolio</b>
+
+<span class="dark-btn" onclick="toggleDark()">Dark</span>
+
+</header>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#pricing">Pricing</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>Hello, I'm kneeeearwin</h1>
+
+<p id="typing"></p>
+
+<button onclick="document.getElementById('projects').scrollIntoView()">
+View My Work
+</button>
+
+</div>
+
+<!-- ABOUT -->
+
+<div class="section" id="about">
+
+<h2>About Me</h2>
+
+<p>
+I create modern responsive websites for restaurants,
+gyms and real estate businesses.
+My goal is clean design,
+mobile friendly layouts
+and fast performance websites.
+</p>
+
+</div>
+
+<!-- SKILLS -->
+
+<div class="section" id="skills">
+
+<h2>Skills</h2>
+
+<div class="skills">
+
+<div class="skill-card">HTML</div>
+<div class="skill-card">CSS</div>
+<div class="skill-card">JavaScript</div>
+<div class="skill-card">Responsive Design</div>
+<div class="skill-card">UI Design</div>
+
+</div>
+
+</div>
+
+<!-- PROJECTS -->
+
+<div class="section" id="projects">
+
+<h2>My Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa">
+
+<h3>Real Estate Website</h3>
+
+<a href="https://kneeearwin-cyber.github.io/real-estate.html/">View Project</a>
+
+</div>
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f">
+
+<h3>Gym Website</h3>
+
+<a href="https://kneeearwin-cyber.github.io/gym-website/">View Project</a>
+
+</div>
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5">
+
+<h3>Restaurant Website</h3>
+
+<a href="https://kneeearwin-cyber.github.io/restaurant-website/">View Project</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PRICING -->
+
+<div class="section" id="pricing">
+
+<h2>Services & Pricing</h2>
+
+<p>Restaurant Website — $50</p>
+<p>Gym Website — $60</p>
+<p>Real Estate Website — $80</p>
+<p><b>Custom Website — $100</b></p>
+
+</div>
+
+<!-- REVIEWS -->
+
+<div class="section" id="reviews">
+
+<h2>Client Reviews</h2>
+
+<div class="review">
+⭐⭐⭐⭐⭐ Amazing clean website design.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐ Fast delivery and professional work.
+</div>
+
+</div>
+
+<!-- CONTACT -->
+
+<div class="section" id="contact">
+
+<h2>Contact</h2>
+
+<p>Email: Kneeearwin@gmail.com</p>
+
+<a class="telegram" href="https://t.me/OneParallelEmperor">
+Contact via Telegram
+</a>
+
+</div>
+
+<!-- CHAT -->
+
+<div class="chat-button" onclick="toggleChat()">💬</div>
+
+<div class="chat-box" id="chatBox">
+
+<b>AI Assistant</b>
+
+<input type="text" id="chatInput" placeholder="Ask something..." onkeydown="chatAI(event)">
+
+<p id="chatAnswer"></p>
+
+</div>
+
+<script>
+
+/* MENU */
+
+function openMenu(){
+document.getElementById("sidebar").style.left="0"
+}
+
+function closeMenu(e){
+if(!e.target.closest(".sidebar") && !e.target.closest(".menu-icon")){
+document.getElementById("sidebar").style.left="-250px"
+}
+}
+
+/* DARK MODE */
+
+function toggleDark(){
+document.body.classList.toggle("dark")
+}
+
+/* TYPING */
+
+let words=["Web Developer","Frontend Developer","Freelancer"]
+
+let i=0
+let j=0
+let deleting=false
+
+function type(){
+
+let word=words[i]
+
+if(!deleting){
+
+document.getElementById("typing").innerHTML=word.substring(0,j++)
+
+if(j>word.length){
+deleting=true
+setTimeout(type,900)
+return
+}
+
+}
+
+else{
+
+document.getElementById("typing").innerHTML=word.substring(0,j--)
+
+if(j==0){
+deleting=false
+i++
+if(i==words.length)i=0
+}
+
+}
+
+setTimeout(type,120)
+
+}
+
+type()
+
+/* CHAT */
+
+function toggleChat(){
+
+let box=document.getElementById("chatBox")
+
+box.style.display=box.style.display=="block"?"none":"block"
+
+}
+
+function chatAI(e){
+
+if(e.key==="Enter"){
+
+let q=document.getElementById("chatInput").value.toLowerCase()
+
+let ans="Please contact me."
+
+if(q.includes("price"))
+ans="Restaurant $50, Gym $60, Real Estate $80, Custom website $100."
+
+if(q.includes("contact"))
+ans="Email or Telegram contact available."
+
+document.getElementById("chatAnswer").innerText=ans
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
